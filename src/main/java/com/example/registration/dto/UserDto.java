@@ -2,6 +2,7 @@ package com.example.registration.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class UserDto {
     private Long id;
@@ -13,6 +14,7 @@ public class UserDto {
     @Email
     private String email;
     @NotEmpty(message = "Password should not be empty!")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
 
     public UserDto(Long id, String firstName, String lastName, String email, String password) {
